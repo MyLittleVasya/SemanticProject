@@ -1,0 +1,30 @@
+server:
+  port: 8010
+  servlet:
+    session:
+      cookie:
+        max-age: 1440m
+spring:
+  application:
+    name: SemanticFilms
+  h2:
+    console:
+      enabled: true
+  datasource:
+    username: 1
+    password: 1
+    url: jdbc:h2:mem:semanticfilms
+    #url: jdbc:h2:file:./auth_resource_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  main:
+    allow-bean-definition-overriding: true
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /api
+wikidata:
+  sparql:
+    endpoint: https://query.wikidata.org/sparql
