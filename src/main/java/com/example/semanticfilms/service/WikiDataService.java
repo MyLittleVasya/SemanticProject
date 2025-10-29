@@ -41,12 +41,14 @@ public class WikiDataService {
     ServletRequestAttributes servletRequestAttributes =
         (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
     HttpServletRequest request = servletRequestAttributes.getRequest();
+
     final var queryUrl = request.getRequestURI().concat("?").concat(request.getQueryString());
     final var savedQuery = savedQueryRepository.findByQueryUrl(queryUrl);
     if (savedQuery.isPresent()) {
       System.out.println("FOUND SAVED QUERY");
       return savedQuery.get().getResult();
     }
+
     String dateFilter = "";
 
     if (startDate != null && endDate != null && (startDate.isBefore(endDate))) {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000",allowedHeaders = "*", exposedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"},allowedHeaders = "*", exposedHeaders = "*", allowCredentials = "true")
 public class MainController {
 
   private final WikiDataService wikidataService;
